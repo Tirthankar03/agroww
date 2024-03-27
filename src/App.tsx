@@ -5,12 +5,13 @@ import {
   Navigate,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
+import HomePage from "./pages/HomePage";
 const App = () => {
   return (
     <Router>
       <Routes>
       <Route path="/" element={<Layout>
-          <p>Home page</p>
+          <HomePage/>
         </Layout>}/>
 
         <Route path="/wishlist" element={<Layout>

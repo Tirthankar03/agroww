@@ -14,7 +14,7 @@ function Header() {
           </Link>
         </span>
         <span className=" flex space-x-2">
-          <Link to="/cart" className="flex bg-green-300 items-center text-black-600 px-3 font-bold hover:bg-gray-100">
+          <Link to="/cart" className="flex bg-green-300 items-center text-black-600 px-3 font-bold hover:bg-gray-100 ">
             cart
           </Link>
         </span>
