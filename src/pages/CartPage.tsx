@@ -1,9 +1,11 @@
 import ItemCard from "../components/ItemCard";
-import { Products } from "../constants/dummy";
 import { Product } from "../libs/type";
+import { useAppSelector } from "../store/store";
 
 function CartPage() {
-    const products: Product[] = Products
+    // const products: Product[] = Products
+
+    const products = useAppSelector(state=>state.product.products);
   return (
     <div className='container'>
       <h1 className="text-5xl text-primeColor font-titleFont font-bold">

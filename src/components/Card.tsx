@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { Product } from "../libs/type";
 import { useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { useAppDispatch } from "../store/store";
+import { addToCart } from "../store/features/productSlice";
 
 function Card(props: Product) {
     const [heart, setHeart] = useState(true);
+    const dispatch = useAppDispatch();
   return (
     <div className="flex flex-col w-full h-full !p-4 bg-green-500 shadow-lg rounded-lg">
         <div className="relative w-full h-full">
@@ -43,12 +46,19 @@ function Card(props: Product) {
 
 
 
-          <div className="flex flex-1 items-end flex-row-reverse">
-          <Link
-            to={'/cart'}
+          <div className="flex flex-1 items-end gap-3 flex-row-reverse">
+          <button
+            onClick={() => dispatch(addToCart({...props, quantity: 1}))}
             className="linear rounded-[20px] bg-green-900 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-green-700 active:bg-green-700"
           >
             Add to cart
+          </button>
+
+          <Link
+            to={`/details/${props.id}`}
+            className="linear rounded-[20px] bg-green-900 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-green-700 active:bg-green-700"
+          >
+            Details
           </Link>
           </div>
 
