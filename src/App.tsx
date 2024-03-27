@@ -9,7 +9,17 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout></Layout>}/>
+      <Route path="/" element={<Layout>
+          <p>Home page</p>
+        </Layout>}/>
+
+        <Route path="/wishlist" element={<Layout>
+          <p>Wishlist</p>
+        </Layout>}/>     
+        
+        <Route path="/cart" element={<Layout>
+          <p>Cart</p>
+        </Layout>}/>
       </Routes>
     </Router>
   );
