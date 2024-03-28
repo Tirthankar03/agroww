@@ -17,6 +17,7 @@ function HomePage() {
       description={product.description}
       category={product.category}
       price={product.price}
+      wishlist={product.wishlist}
     />
     )) }
     

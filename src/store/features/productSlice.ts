@@ -5,18 +5,21 @@ import { toast } from 'sonner';
 
 type ProductState = {
   products: Product[]
+  wishlist: Product[]; 
 }
 
 
 
 const initialState: ProductState = {
   products: [],
+  wishlist: [],
 }
 
 export const ProductSlice = createSlice({
     name: "product",
     initialState,
     reducers: {
+      //add to cart implementation
     addToCart: (state, action:PayloadAction<Product>) => {
       const product = state.products.find(
         (product) => product.id === action.payload.id
@@ -64,8 +67,25 @@ export const ProductSlice = createSlice({
       state.products = [];
       toast.success("cart reset succesfully");
     },
+    // wishlist implementation 
+    addToWishlist: (state, action: PayloadAction<Product>) => {
+      const product = state.wishlist.find(
+        (product) => product.id === action.payload.id
+      );
+      if (!product) {
+        state.wishlist.push(action.payload);
+        toast.success("Product added to wishlist");
+      }
+    },
+    removeFromWishlist: (state, action: PayloadAction<string>) => {
+      state.wishlist = state.wishlist.filter(
+        (product) => product.id !== action.payload
+      );
+      toast.error("Product removed from wishlist");
+    },
   },
-});
+  },
+);
 
 export default ProductSlice.reducer;
-export const { addToCart, increaseCount, decreaseCount, deleteProduct, resetCart  }=ProductSlice.actions;
+export const { addToCart, increaseCount, decreaseCount, deleteProduct, resetCart, addToWishlist, removeFromWishlist  }=ProductSlice.actions;

@@ -2,12 +2,21 @@ import { Link } from "react-router-dom";
 import { Product } from "../libs/type";
 import { useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-import { useAppDispatch } from "../store/store";
-import { addToCart } from "../store/features/productSlice";
+import { useAppDispatch, useAppSelector } from "../store/store";
+import { addToCart, addToWishlist, removeFromWishlist } from "../store/features/productSlice";
 
 function Card(props: Product) {
-    const [heart, setHeart] = useState(true);
-    const dispatch = useAppDispatch();
+  const [wishlistState, setWishlistState] = useState(props.wishlist || false);
+  const dispatch = useAppDispatch();
+
+  const handleToggleWishlist = () => {
+      setWishlistState(!wishlistState); 
+      if (!wishlistState) {
+          dispatch(addToWishlist(props));
+      } else {
+          dispatch(removeFromWishlist(props.id));
+      }
+  };
   return (
     <div className="flex flex-col w-full h-full !p-4 bg-green-500 shadow-lg rounded-lg">
         <div className="relative w-full h-full">
@@ -18,17 +27,17 @@ function Card(props: Product) {
             {props.name}
           </div>
           <button
-            onClick={() => setHeart(!heart)}
-            className="absolute top-3 right-3 flex items-center justify-center rounded-full bg-green-700 p-2 text-white hover:cursor-pointer  hover:bg-green-600 shadow-lg "
-          >
-            <div className="flex h-full w-full items-center justify-center rounded-full text-xl">
-              {heart ? (
-                <FaRegBookmark />
-              ) : (
-                <FaBookmark className="text-white" />
-              )}
-            </div>
-          </button>
+                    className="absolute top-3 right-3 flex items-center justify-center rounded-full bg-green-700 p-2 text-white hover:cursor-pointer  hover:bg-green-600 shadow-lg "
+                    onClick={handleToggleWishlist}
+                >
+                    <div className="flex h-full w-full items-center justify-center rounded-full text-xl">
+                        {wishlistState ? (
+                            <FaBookmark className="text-white" />
+                        ) : (
+                            <FaRegBookmark />
+                        )}
+                    </div>
+                </button>
         </div>
 
         <div className="mb-3 flex items-center justify-between px-1 md:flex-col md:items-start lg:flex-row lg:justify-between xl:flex-col xl:items-start 3xl:flex-row 3xl:justify-between">
