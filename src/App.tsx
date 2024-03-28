@@ -16,7 +16,7 @@ const App = () => {
           <HomePage/>
         </Layout>}/>
 
-        <Route path="/wishlist" element={<Layout title="WISHLIST" subtitle="see all your saved goods">
+        <Route path="/wishlist" element={<Layout title="WISHLIST" subtitle="get all your favorite items here">
           <WishListPage/>
         </Layout>}/>     
         

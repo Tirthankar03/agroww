@@ -6,7 +6,7 @@ function Header() {
   const wishlists = useAppSelector((state) => state.product.wishlist);
 
   return (
-    <div className=" bg-green-700 py-6 ">
+    <div className="sticky top-0 z-[1] mx-auto  flex w-full bg-green-700 flex-wrap items-center justify-between border-b border-gray-100 bg-background p-[2em] font-sans font-bold uppercase text-text-primary backdrop-blur-[100px] ">
       <div className="container mx-auto flex justify-between">
         <span className="text-3xl text-white  font-bold tracking-tight">
           <Link to="/">AGROWW</Link>
