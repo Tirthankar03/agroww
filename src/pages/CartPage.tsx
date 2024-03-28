@@ -56,16 +56,19 @@ function CartPage() {
     ))}
   </div>
 
-  <div className="flex flex-row justify-between">
+  <div className="flex flex-row justify-between gap-2 ">
     <div>
-      <button className="py-2 px-10 bg-red-500 text-white font-semibold uppercase mb-4 hover:bg-red-700 duration-300" onClick={() => dispatch(resetCart())}>
-        Reset cart
+      <button className="mt-4 py-2 px-10 bg-red-500 text-white font-semibold uppercase mb-4 hover:bg-red-700 duration-300" onClick={() => dispatch(resetCart())}>
+        Reset 
       </button>
     </div>
     <div className="max-w-7xl gap-4 flex justify-end mt-4">
-      <div className="w-96 flex flex-col gap-4">
+      <div className="md:w-96  flex flex-col gap-4">
         <p className="flex items-center justify-between border-[1px] border-gray-400 py-1.5 text-lg px-4 font-medium">
-          Total
+        <span className="font-bold tracking-wide text-lg font-titleFont hidden md:inline">
+        Total
+          </span>
+
           <span className="font-bold tracking-wide text-lg font-titleFont">
           ${totalAmt}
           </span>
