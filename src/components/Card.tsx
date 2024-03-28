@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Product } from "../libs/type";
 import { useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import { useAppDispatch } from "../store/store";
 import { addToCart, addToWishlist, removeFromWishlist } from "../store/features/productSlice";
 
 function Card(props: Product) {

@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { Products } from '../constants/dummy';
 import { Product } from '../libs/type';
-import { useDispatch } from 'react-redux';
 import { addToCart, addToWishlist, removeFromWishlist } from '../store/features/productSlice';
 import { useAppDispatch } from '../store/store';
 import { useState } from 'react';
@@ -11,18 +10,13 @@ import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 
 function ProductPage() {
   const {id} = useParams()
-
-  console.log("id>>>>>>>>>", id);
   
   const products: Product[] = Products
-  console.log("products>>>>", products);
   
 
   const product = products.find((e) => {
     return e.id === id
   })
-
-  console.log("product selected>>>", product);
 
 
 if (product) {
@@ -45,9 +39,7 @@ if (product) {
   return (
     <div className='pt-32 pb-23 lg:py-32  flex items-center'>
     <div className='container mx-auto'>
-        {/* image & text wrapper */}
         <div className='flex flex-col lg:flex-row items-center'>
-        {/* image */}
         <div className='flex flex-1 justify-center items-center lg:mb-0'>
             <div className='relative'>
             <img className='max-w-[200px] lg:max-w-sm' src={product.image} alt="" />
@@ -67,7 +59,6 @@ if (product) {
             </div>
             
         </div>
-        {/* text */}
         <div className='flex-1 text-center lg:text-left '>
             <h1 className='text-[26px] font-medium mb-2 max-w-[450px] mx-auto'>{product.name}</h1>
             <div className='text-xl text-red-500 font-medium'>₹{product.price}</div>
