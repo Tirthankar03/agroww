@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ItemCard from "../components/ItemCard";
-import { Product } from "../libs/type";
 import { resetCart } from "../store/features/productSlice";
 import { useAppDispatch, useAppSelector } from "../store/store";
 
