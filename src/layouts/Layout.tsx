@@ -1,7 +1,8 @@
 import { ReactNode } from 'react'
-import Header from '../components/Header'
+// import Header from '../components/Header' 
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar';
 
 interface Props{
   children: ReactNode;
@@ -13,7 +14,8 @@ interface Props{
 const Layout = ({children, title, subtitle}: Props) => {
   return (
     <div className='flex flex-col min-h-screen'>
-        <Header/>
+        {/* <Header/> */}
+        <Navbar/>
         <Hero title={title} subtitle={subtitle}/>
         <div className='container mx-auto py-10 flex-1'>
             {children}
