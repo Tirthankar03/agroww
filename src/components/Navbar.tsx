@@ -14,8 +14,6 @@ const Navbar = () => {
   const products = useAppSelector((state) => state.product.products);
   const wishlists = useAppSelector((state) => state.product.wishlist);
 
-  const isWishlistPage = location.pathname === "/wishlist";
-  const isCartPage = location.pathname === "/cart";
 
   return (
     <div className="bg-green-800 sticky top-0 z-[1]">
