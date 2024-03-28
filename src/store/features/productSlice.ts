@@ -49,13 +49,14 @@ export const ProductSlice = createSlice({
       const product = state.products.find(
         (product) => product.id === action.payload.id
       );
-      if (product && action.payload.quantity && product?.quantity === 1) {
-        product.quantity = 1;
-      } else {
-        product.quantity--;
-        toast.success("quantity decreased!");
-
-      }
+      if (product && product.quantity !== undefined) {
+        if (product.quantity === 1) {
+            product.quantity = 1;
+        } else {
+            product.quantity--;
+            toast.success("quantity decreased!");
+        }
+    }
     },
     deleteProduct: (state, action:PayloadAction<string>) => {
       state.products = state.products.filter(
