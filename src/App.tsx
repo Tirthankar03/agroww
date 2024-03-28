@@ -12,19 +12,19 @@ const App = () => {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<Layout>
+      <Route path="/" element={<Layout title="A store for the greens!" subtitle='get all the agricultural items at a single stop....'>
           <HomePage/>
         </Layout>}/>
 
-        <Route path="/wishlist" element={<Layout>
+        <Route path="/wishlist" element={<Layout title="WISHLIST" subtitle="see all your saved goods">
           <WishListPage/>
         </Layout>}/>     
         
-        <Route path="/cart" element={<Layout>
+        <Route path="/cart" element={<Layout title="CART" subtitle="see all your saved goods">
           <CartPage/>
         </Layout>}/>
 
-        <Route path="product/:id" element={<Layout>
+        <Route path="product/:id" element={<Layout title="PRODUCT" subtitle="details of the product">
           <ProductPage/>
         </Layout>}/>
       </Routes>
