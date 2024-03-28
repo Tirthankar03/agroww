@@ -64,7 +64,7 @@ function Card(props: Product) {
           </button>
 
           <Link
-            to={`/details/${props.id}`}
+            to={`/product/${props.id}`}
             className="linear rounded-[20px] bg-green-900 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-green-700 active:bg-green-700"
           >
             Details
