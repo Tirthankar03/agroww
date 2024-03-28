@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ItemCard from "../components/ItemCard";
 import { resetCart } from "../store/features/productSlice";
 import { useAppDispatch, useAppSelector } from "../store/store";
-import { Link } from "react-router-dom";
 import EmptyCard from "../components/EmptyCard";
 
 function CartPage() {

@@ -1,6 +1,5 @@
 import Card from "../components/Card"
 import EmptyCard from "../components/EmptyCard";
-import { Product } from "../libs/type"
 import { useAppSelector } from "../store/store";
 
 
