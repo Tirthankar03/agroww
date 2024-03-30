@@ -7,9 +7,9 @@ interface HeroProps {
 
 const Hero: FC<HeroProps> = ({title, subtitle}) =>  {
   return (
-    <div className=" bg-green-700 pb-16">
-        <div className="container mx-auto flex flex-col gap-2 mt-3">
-            <h1 className="text-5xl text-white font-extrabold">
+    <div className=" bg-green-700 pb-10 mb-10 ">
+        <div className="container mx-auto flex flex-col gap-2 p-4  justify-center  pt-4  ">
+            <h1 className="text-5xl mt-7 text-white font-extrabold">
                 {/* A store for the greens! */}
                 {title}
             </h1>

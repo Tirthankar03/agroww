@@ -13,6 +13,7 @@ const App = () => {
     <Router>
       <Routes>
       <Route path="/" element={<Layout title="A store for the greens!" subtitle='get all the agricultural items at a single stop....'>
+        
           <HomePage/>
         </Layout>}/>
 
