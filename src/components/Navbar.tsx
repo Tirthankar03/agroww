@@ -14,6 +14,7 @@ const Navbar = () => {
   const products = useAppSelector((state) => state.product.products);
   const wishlists = useAppSelector((state) => state.product.wishlist);
 
+  const total = products.length + wishlists.length
 
   return (
     <div className="bg-green-800 sticky top-0 z-[1]">
@@ -70,16 +71,22 @@ const Navbar = () => {
             </div>
           </div>
           {/* Hamburger Button */}
-          <div className="-mr-2 flex md:hidden">
+          <span className="-mr-2 flex md:hidden relative">
             <button
               type="button"
               onClick={handleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-800 focus:ring-white"
+              className="relative inline-flex items-center justify-center p-3 rounded-md text-white hover:text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-800 focus:ring-white"
             >
-              <span className="sr-only">Open Main Menu</span>
+              {/* <span className="sr-only">Open Main Menu</span> */}
               {open ? <FaTimes /> : <FaBars />}
+              
             </button>
-          </div>
+            {total>0 && (
+            <p className="absolute top-1 right-1 bg-primeColor text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+              {total}
+            </p>
+          )}
+          </span>
         </div>
         {/* Mobile Menu */}
         {open && (
@@ -93,23 +100,37 @@ const Navbar = () => {
                 >
                   Home
                 </a>
-                <a
-                  className={`text-white hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
+                <span className={` space-x-2 relative text-white hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
                     location.pathname === '/wishlist' ? 'bg-green-700' : ''
-                  }`}
-                  onClick={() => navigate('/wishlist')}
+                  }`} onClick={() => navigate('/wishlist')}>
+                <a
+                  
+                  
                 >
                   Wishlist
                 </a>
-
-                <a
-                  className={`text-white hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
+                {wishlists.length > 0 && (
+            <p className="absolute top-1 right-1 bg-primeColor text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+              {wishlists.length}
+            </p>
+          )}
+                </span>
+                <span   className={`space-x-2 relative text-white hover:bg-green-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
                     location.pathname === '/cart' ? 'bg-green-700' : ''
-                  }`}
+                  }`} 
                   onClick={() => navigate('/cart')}
+                  >
+                <a
+                
                 >
                   Cart
                 </a>
+                {products.length > 0 && (
+            <p className="absolute top-1 right-1 bg-primeColor text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+              {products.length}
+            </p>
+          )}
+                </span>
             </div>
           </div>
         )}
